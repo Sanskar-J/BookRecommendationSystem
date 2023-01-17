@@ -3,6 +3,7 @@ import pickle
 import numpy as np
 import pandas as pd 
 
+print(pd.__version__)
 popular_df = pd.read_pickle(open('model/popular.pkl','rb'))
 pt = pd.read_pickle(open('model/pt.pkl','rb'))
 books = pd.read_pickle(open('model/books.pkl','rb'))
