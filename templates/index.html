@@ -69,10 +69,10 @@ body {
     background-color: #F1F2F3;
 }
 
-.container-fluid,
-.container {
+/* .container-fluid, */
+/* .container {
     max-width: 1200px;
-}
+} */
 
 .card-container {
     padding: 100px 0px;
@@ -686,7 +686,13 @@ body {
 .profile-card-10:hover img {
     transform: scale(1.1);
 }
+.test{
+    background: white;
+    width: auto;
+    height: 170px;
+}
 </style>
+
 
 <body style="background-color: black">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -716,7 +722,7 @@ body {
             <div class="col-md-3" >
               <div class="profile-card-4 text-center" style="height: 450px;">
                 <div style="height: 200px; background-color: #333;">
-                <img src="{{ image[i] }}" alt="https://images.unsplash.com/photo-1533035353720-f1c6a75cd8ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z3JheSUyMGJhY2tncm91bmR8ZW58MHx8MHx8&w=1000&q=80" class="img img-responsive" style="padding-top: 10px;">
+                <img src="{{ image[i] }}" class="img img-responsive test" style="margin-top: 10px;">
               </div>
                   <div class="profile-content">
                       <div class="profile-name" style="color: black;">

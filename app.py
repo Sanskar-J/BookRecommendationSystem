@@ -25,11 +25,17 @@ def recommend_ui():
 
 @app.route('/recommend_books',methods=['post'])
 def recommend():
+    data = []
+    
     user_input = request.form.get('user_input')
+    if user_input not in pt.index:
+        data=[['Please Check the Spellings and the case of the String entered', '', '']]
+        return render_template('recommend.html',data=data)
     index = np.where(pt.index == user_input)[0][0]
+    
     similar_items = sorted(list(enumerate(similarity_scores[index])), key=lambda x: x[1], reverse=True)[1:5]
 
-    data = []
+    
     for i in similar_items:
         item = []
         temp_df = books[books['Book-Title'] == pt.index[i[0]]]
@@ -42,6 +48,7 @@ def recommend():
     print(data)
 
     return render_template('recommend.html',data=data)
+    
 
 if __name__ == '__main__':
     app.run(debug=True)
