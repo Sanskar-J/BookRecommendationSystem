@@ -5,11 +5,14 @@ import pandas as pd
 import bz2file as bz2
 
 print(pd.__version__)
-popular_df = pd.read_pickle(open('model/popular.pkl','rb'))
-pt=bz2.BZ2File('pt.pbz2', 'rb')
+popular_df=bz2.BZ2File('model/popular.pbz2', 'rb')
+popular_df = pd.read_pickle(popular_df)
+pt=bz2.BZ2File('model/pt.pbz2', 'rb')
 pt = pd.read_pickle(pt)
-books = pd.read_pickle(open('model/books.pkl','rb'))
-similarity_scores = pd.read_pickle(open('model/similarity_scores.pkl','rb'))
+books=bz2.BZ2File('model/books.pbz2', 'rb')
+books = pd.read_pickle(books)
+similarity_scores=bz2.BZ2File('model/similarity_scores.pbz2', 'rb')
+similarity_scores = pd.read_pickle(similarity_scores)
 # popular_df = pickle.load(open('model/popular.pkl','rb'))
 # pt = pickle.load(open('model/pt.pkl','rb'))
 # books = pickle.load(open('model/books.pkl','rb'))
