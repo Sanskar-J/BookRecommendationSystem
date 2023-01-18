@@ -2,10 +2,12 @@ from flask import Flask,render_template,request
 import pickle
 import numpy as np
 import pandas as pd 
+import bz2file as bz2
 
 print(pd.__version__)
 popular_df = pd.read_pickle(open('model/popular.pkl','rb'))
-pt = pd.read_pickle(open('model/pt.pkl','rb'))
+pt=bz2.BZ2File('pt.pbz2', 'rb')
+pt = pd.read_pickle(pt)
 books = pd.read_pickle(open('model/books.pkl','rb'))
 similarity_scores = pd.read_pickle(open('model/similarity_scores.pkl','rb'))
 # popular_df = pickle.load(open('model/popular.pkl','rb'))
